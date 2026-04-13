@@ -31,3 +31,23 @@ function mostrarNome() {
   document.getElementById("mensagem").innerText =
     "Bem-vindo, " + nome + " Se Prepare para fugir das cobras";
 }
+
+
+
+function aceitar() {
+  localStorage.setItem("idadeConfirmada", "true");
+  document.getElementById("age-popup").style.display = "none";
+  document.getElementById("conteudo").style.display = "block";
+}
+
+function negar() {
+  alert("Você precisa ter 18 anos para acessar.");
+  window.location.href = "https://www.google.com";
+}
+
+window.onload = function() {
+  if (localStorage.getItem("idadeConfirmada") === "true") {
+    document.getElementById("age-popup").style.display = "none";
+    document.getElementById("conteudo").style.display = "block";
+  }
+}
